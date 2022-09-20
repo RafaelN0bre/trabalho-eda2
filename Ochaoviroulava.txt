@@ -1,0 +1,69 @@
+Ideia 1)
+
+Criar um grafo, e uma tabela hash que referencia cada ponto do grafo. Este ponto é uma struct que tem coordenadas x e y.
+Fazer um loop pelo Grafo, e calcular a distância euclidiana entre todos os pontos tem complexidade N^2
+Outra abordagem é fazer uma verificação se o ponto se encontra na circunferência de centro O e raio d, solução com complexidade N
+
+Assim, será possível identificar os pontos que possuem conexão, a conexão sempre é bilateral, então já poupa ter que percorrer a matriz inteira,caso seja feito com matriz. Se for feito com lista, não terá jeito, deverá percorrer o vetor de pontos inteiro, para cada ponto.
+
+Após isso, teremos identificado quais pontos conectam com quais. Basta rodar uma Bfs a partir do ponto O, se chegar no ponto S marcamos no vetor pre um contador da quantidade de pontos visitados, depois basta encontrar no vetor pre o maior número.
+
+O pre pode então ser uma fila de prioridade, então bastará extrair a cabeça.
+
+Casos de teste:
+
+Input:
+    3
+    4
+    -3 2
+    0 3
+    -2 4
+    -2 2
+Output:
+    2
+
+Input:
+3
+9
+0 0
+-3 -2
+2 1
+-1 -1
+0 1
+0 -1
+0 -2
+-1 -1
+-1 -2
+Output:
+    2
+
+Input:
+3
+3
+0 0
+5 5
+1 0
+Output
+-1
+
+Input:
+3
+15
+2 0
+8 0
+4 1
+5 2
+7 3
+9 2
+4 -1
+-3 3
+-2 -2
+1 3
+2 -1
+3 -1
+3 1
+5 1
+3 -3
+Output:
+5
+
